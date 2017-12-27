@@ -1,0 +1,31 @@
+//this module is oen of the state which ask the player to input the strength
+
+module getStrength(input enable, input clk, output reg[7:0] strength);
+	
+	wire next;
+	counter c1(clk,enable,next);
+	
+	reg add = 1'b1;
+
+	always@ (posedge next)
+	begin
+		if (add)
+		begin 
+			strength = strength + 8'd10; //add 10 strength
+			if (strength == 8'd100) //if reach 100 strength, change to minus
+			begin
+				add = ~add;
+			end
+		end 
+		
+		else 
+		begin 
+			strength = strength - 8'd10; //minus 10 strength
+			if (angle == 8'd0) //if reach 0 degree
+			begin 
+				add = ~add;
+			end
+		end
+	end
+
+endmodule 

@@ -1,0 +1,29 @@
+//top module 
+
+module top(SW,KEY,CLOCK_50,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,HEX6);
+
+	input SW[9:0];
+	input KEY[3:0];
+	input CLOCK_50;
+	
+	output[9:0] LEDR;
+	output[6:0] HEX0;
+	output[6:0] HEX1;
+	output[6:0] HEX2;
+	output[6:0] HEX3;
+	output[6:0] HEX4;
+	output[6:0] HEX5;
+	
+	wire[7:0] angle;
+	
+	getAngle g0(
+				.enable(KEY[1]),
+				.clk(CLOCK_50)
+				.angle(angle)
+				);
+				
+	hex_decoder(HEX5,angle[7:4]);
+	hex_decoder(HEX4,angle[3:0]);
+	
+endmodule
+					

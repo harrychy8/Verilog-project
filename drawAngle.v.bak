@@ -1,0 +1,71 @@
+module drawAngle(
+	input enable,
+	input clk,
+	output [7:0]x, 
+	output [7:0]xd,
+	output [6:0]y, 
+	output [7:0]yd,
+	output color);
+	
+	
+	
+	assign enable = 1'b1;
+	wire next;
+	wire busy;
+	wire wr;
+	wire [15:0] addr;
+	counter c0(clk,enable,next);
+	
+	
+	assign x = 7'b0101010; 	//42
+	assign y = 7'b1000000;   //64;
+	reg [7:0]xend = 8'b00101010;//42
+	reg [6:0]yend = 7'b0011100;//28;
+
+	
+	
+	reg down = 1'b1;
+	
+	
+	always@ (posedge next)
+	begin
+
+	if (down)
+		begin 
+			xend <= xend + 2'b10;
+			yend <= yend + 2'b10;
+			if (xend == 8'b01001110) //if reach 90 degree, change to minus
+			begin
+				down = ~down;
+			end
+		end 
+		
+		else 
+		begin 
+			xend <= xend - 2'b10;
+			yend <= yend - 2'b10;	//minus 2 pix degree
+			if (xend == 8'b00101010) //if reach 0 degree
+			begin 
+				down = ~down;
+			end
+		end	
+	
+	end
+	
+	assign xd = xend;
+	assign yd = yend;
+	
+ linedraw l0(
+  enable,
+  busy,
+  x,
+  y,
+  xd,
+  yd,
+  wr,
+  addr,
+  clk
+  );
+   
+  
+endmodule

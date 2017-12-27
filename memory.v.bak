@@ -1,0 +1,22 @@
+//this module is for loading the memory 
+module load_frontPic(clk,q);
+
+input clk;
+output [2:0] q;
+reg [3:0] address;
+
+
+p1 p2(
+	address,
+	clk,
+	1'b0,
+	1'b0,
+	q);
+
+always@ (posedge clk)
+begin
+address = address + 1'b1;
+end
+
+endmodule
+

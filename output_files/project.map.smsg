@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at datapath.v(129): always construct contains both blocking and non-blocking assignments File: C:/Users/harry/Desktop/SchoolWork/ece241/project/datapath.v Line: 129

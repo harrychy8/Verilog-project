@@ -1,0 +1,16 @@
+module test;
+   initial begin
+      reg[15:0]a;
+      reg [15:0] b;
+
+      integer    seed,i,j;
+      for (i=0; i<6; i=i+1)
+        begin
+           a=$urandom%10; 
+           #100;
+           b=$urandom%20;
+           $display("A %d, B: %d",a,b);    
+        end 
+      $finish;
+   end
+endmodule

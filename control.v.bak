@@ -1,0 +1,13 @@
+//the module for control 
+
+module control(
+
+	
+	
+	 localparam  S_RESET				= 5'd1,
+					 S_START   			= 5'd2,
+                S_WAIT     		= 5'd3,
+					 S_WAIT				= 5'd4,
+					 S_ERASE				= 5'd5,
+					 S_UPDATE_FLIP		= 5'd6,
+					 S_UPDATE_POS		= 5'd7;

@@ -1,0 +1,36 @@
+
+
+
+
+
+
+//this module is a counter for both angle and strength module
+
+module counter(input clk, input enable, output next);
+	
+	reg[19:0] delay = 20'b0;
+	
+	always@ (posedge clk)
+	begin
+		if (enable)
+		begin
+			if (delay == 20'd833334) // enable every 0.25sec
+			begin 
+				delay = 20b'0;
+				enable = 1'b1;
+			end
+			
+			else 
+			begin 
+				delay = delay + 1'b1;
+				enable = 1'b0;
+			end
+		end
+		
+		else
+		begin 
+			delay = 20'b0;
+			enable = 1'b0;
+		end
+	end
+endmodule

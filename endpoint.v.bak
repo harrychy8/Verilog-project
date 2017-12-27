@@ -1,0 +1,81 @@
+//this module is for calculating the height that can be reached based on strength
+
+module end_point(
+			input[7:0] strength,
+			input[7:0] c_x,
+			input[6:0] c_y,
+			
+			output reg[7:0] e_x,
+			output reg[6:0] e_y
+			);
+			
+always @(*)
+	begin
+		if (result == 8'd0)//0
+		begin
+			e_x = c_x;
+			e_y = c_y;
+		end
+		
+		else if (result == 8'd10)//1
+		begin
+			e_x = c_x + 8'd1;
+			e_y = c_y + 7'd1;
+		end
+		
+		else if (result == 8'd20)//2
+		begin
+			e_x = c_x + 8'd2;
+			e_y = c_y + 7'd2;
+		end
+		
+		else if (result == 8'd30)//3
+		begin
+			e_x = c_x + 8'd3;
+			e_y = c_y + 7'd3;
+		end
+		
+		else if (result == 8'd40)//4
+		begin
+			e_x = c_x + 8'd4;
+			e_y = c_y + 7'd4;
+		end
+		
+		else if (result == 8'd50)//5
+		begin
+			e_x = c_x + 8'd5;
+			e_y = c_y + 7'd5;
+		end
+		
+		else if (result == 8'd60)//6
+		begin
+			e_x = c_x + 8'd6;
+			e_y = c_y + 7'd6;
+		end
+		
+		else if (result == 8'd70)//7
+		begin
+			e_x = c_x + 8'd7;
+			e_y = c_y + 7'd7;
+		end
+		
+		else if (result == 8'd80)//8
+		begin
+			e_x = c_x + 8'd8;
+			e_y = c_y + 7'd8;
+		end
+		
+		else if (result == 8'd90)//9
+		begin
+			e_x = c_x + 8'd9;
+			e_y = c_y + 7'd9;
+		end
+		
+		else  //10
+		begin
+			e_x = c_x + 8'd10;
+			e_y = c_y + 7'd10;
+		end
+	end
+
+endmodule

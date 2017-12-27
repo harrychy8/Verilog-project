@@ -1,0 +1,31 @@
+//this module is to calculate current based on input angle and strength
+
+module score(input[7:0] angle, strength, output[7:0] score);
+	
+	wire[7:0] result = 8'b0;
+
+	if (angle == 8'd0 || angle == 8'd90)
+	begin 
+		result = 8'b0;
+	end
+	
+	else if (angle == 8'd15 || angle == 8'd75)
+	begin 
+		result = 0.5 * strength;
+	end
+	
+	else if (angle == 8'd30 || angle == 8'd60)
+	begin 
+		result = 0.8 * strength;
+	end
+	
+	else 
+	begin 
+		result = strength;
+	end
+	
+	assign score = result;
+	
+endmodule
+
+		

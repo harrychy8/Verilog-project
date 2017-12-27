@@ -1,0 +1,13 @@
+
+State Machine - |top|control:c0|current_state
+Name current_state.S_LOSE current_state.S_WIN current_state.S_DRAW current_state.S_LOAD_S current_state.S_WAIT2 current_state.S_LOAD_A current_state.S_WAIT1 current_state.S_TARGET current_state.S_START current_state.S_RESET 
+current_state.S_RESET 0 0 0 0 0 0 0 0 0 0 
+current_state.S_START 0 0 0 0 0 0 0 0 1 1 
+current_state.S_TARGET 0 0 0 0 0 0 0 1 0 1 
+current_state.S_WAIT1 0 0 0 0 0 0 1 0 0 1 
+current_state.S_LOAD_A 0 0 0 0 0 1 0 0 0 1 
+current_state.S_WAIT2 0 0 0 0 1 0 0 0 0 1 
+current_state.S_LOAD_S 0 0 0 1 0 0 0 0 0 1 
+current_state.S_DRAW 0 0 1 0 0 0 0 0 0 1 
+current_state.S_WIN 0 1 0 0 0 0 0 0 0 1 
+current_state.S_LOSE 1 0 0 0 0 0 0 0 0 1 

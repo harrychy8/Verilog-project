@@ -1,0 +1,57 @@
+//the module for datapath
+//recive data from the control
+module datapath(
+			input clk,
+			input resetn,
+			input[7:0] angle, strength, score,
+			input datapath_start,
+			input datapath_load_angle,
+			input datapath_load_strength,
+			input datapath_draw,
+			input datapath_score,
+	
+	
+	always@ (posedge clk)
+	begin
+		if (!resetn) //initalize every data such as angle, strength, score
+		begin
+			angle = 8'b0;
+			strength = 8'b0;
+			score = 8'b0;
+		end
+		
+		else 
+		begin
+			if (datapath_start)
+			begin
+				//state may change right from score state
+				//need to reset data as well
+				angle = 8'b0;
+				strength = 8'b0;
+				score = 8'b0;
+				//output image
+			end
+			
+			else if (datapath_load_angle)
+			begin
+				
+			end
+			
+			else if (datapath_load_strength)
+			begin 
+			
+			end
+			
+			else if (datapath_draw)
+			begin
+			
+			end
+			
+			else if (datapath_score)
+			begin
+			
+			end
+		end
+	end
+	
+endmodule
